@@ -11,8 +11,14 @@
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @project.user %>
+  <strong>Created by:</strong>
+  <%= link_to @project.user.name, @project.user %>
+</p>
+
+
+<p>
+  <strong>Total funding:</strong>
+  <%= @project.total_funding %>
 </p>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |

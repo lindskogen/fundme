@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  post 'login' => 'sessions#create', as: :login
+
+  post 'logout' => 'sessions#destroy', as: :logout
+
   resources :fundings
   resources :projects
   resources :users

@@ -16,8 +16,8 @@
     <% @fundings.each do |funding| %>
       <tr>
         <td><%= funding.amount %></td>
-        <td><%= funding.project %></td>
-        <td><%= funding.user %></td>
+        <td><%= funding.project.name %></td>
+        <td><%= funding.user.name %></td>
         <td><%= link_to 'Show', funding %></td>
         <td><%= link_to 'Edit', edit_funding_path(funding) %></td>
         <td><%= link_to 'Destroy', funding, method: :delete, data: { confirm: 'Are you sure?' } %></td>

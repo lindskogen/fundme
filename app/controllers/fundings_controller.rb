@@ -15,16 +15,18 @@ class FundingsController < ApplicationController
   # GET /fundings/new
   def new
     @funding = Funding.new
+    @projects = Project.all
   end
 
   # GET /fundings/1/edit
   def edit
+    @projects = Project.all
   end
 
   # POST /fundings
   # POST /fundings.json
   def create
-    @funding = Funding.new(funding_params)
+    @funding = current_user.fundings.build(funding_params)
 
     respond_to do |format|
       if @funding.save
@@ -69,6 +71,6 @@ class FundingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def funding_params
-      params.require(:funding).permit(:amount, :project_id, :user_id)
+      params.require(:funding).permit(:amount, :project_id)
     end
 end
