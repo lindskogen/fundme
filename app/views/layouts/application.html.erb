@@ -10,6 +10,9 @@
 <header>
 <% if current_user.present? %>
 Signed in as <%= current_user.name %>
+<%= form_for(:session, url: logout_path, method: :post) do |f| %>
+  <%= f.submit 'Logout' %>
+<% end %>
 <% else %>
 <%= form_for(:session, url: login_path, method: :post) do |f| %>
   <div class="field">
@@ -21,7 +24,8 @@ Signed in as <%= current_user.name %>
     <%= f.password_field :password %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Login' %>
+    <%= link_to 'Create new user', new_user_path %>
   </div>
 <% end %>
 <% end %>

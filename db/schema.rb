@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160423004640) do
+ActiveRecord::Schema.define(version: 20160424090740) do
 
   create_table "fundings", force: :cascade do |t|
     t.integer  "amount"
@@ -38,8 +38,10 @@ ActiveRecord::Schema.define(version: 20160423004640) do
     t.string   "name"
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.boolean  "email_confirmed", default: false
+    t.string   "confirm_token"
   end
 
 end

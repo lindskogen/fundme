@@ -4,6 +4,6 @@ class Project < ActiveRecord::Base
 
 
   def total_funding
-    fundings.sum(:amount)
+    self.fundings.sum(:amount)
   end
 end

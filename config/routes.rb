@@ -5,7 +5,11 @@ Rails.application.routes.draw do
 
   resources :fundings
   resources :projects
-  resources :users
+  resources :users do
+    member do
+      get :confirm_email
+    end
+  end
 
   root 'projects#index'
   # The priority is based upon order of creation: first created -> highest priority.
